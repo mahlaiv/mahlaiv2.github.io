@@ -3,10 +3,9 @@
 }
 .d-table{
   display: table;
-  border: 1px;
+  border: 2px;
   width: 1000px;
   height: 1000px;
-  border-collapse: collapse;
   align-items: :center;
 }
 .d-tr{
