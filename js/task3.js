@@ -52,3 +52,8 @@ function deleteCookie(){
         }
     }
 }
+
+(function main(){
+ $("#button").click(saveCookie);
+    document.addEventListener("DOMContentLoaded", deleteCookie); 
+})();

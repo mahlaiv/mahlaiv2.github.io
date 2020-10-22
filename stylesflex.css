@@ -122,6 +122,7 @@ footer{
     background-color: #00FA9A;
     width: 50%;
     border: 2px;
+    flex-wrap: wrap;
 }
 #thirddiv{
     background-color:white;
@@ -131,6 +132,7 @@ footer{
     background-color:#F0E68C;
     width: 40%;
     border: 2px;
+    flex-wrap: wrap;
 }
 
 .flex-container{
