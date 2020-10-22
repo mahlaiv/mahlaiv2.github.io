@@ -1,0 +1,165 @@
+
+.body-container{
+    
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+
+  }
+
+*{
+  margin: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Tahoma, sans-serif;
+
+}
+
+header{
+    background-color: rgba(0, 255, 255, 0.5);
+    width: 100%;
+    height: 20%;
+
+}
+
+main{
+  display: flex;
+    width: 100%;
+    height: 60%;
+
+}
+
+.flex{
+display: flex;
+height: 100%;
+}
+
+#logo-container{
+    width: 200px;
+    height: 200px;
+}
+
+.margin1{
+margin:auto;
+}
+
+#content{
+    margin: auto;
+}
+
+footer{
+    background-color: rgba(0, 217, 255, 0.5);
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+    border: 2px
+
+}
+
+.main1{
+    width: 50%;
+    height: 100%;
+    background: orange;
+
+}
+.main2{
+    width: 50%;
+    height: 100%;
+    background: blue;
+
+}
+
+
+#updiv{
+  display: flex;
+    background-color:white;
+    width: 100%;
+    height: 70%;
+
+}
+
+#downdiv{
+    background-color: #F0E68C;
+    width: 100%;
+    height: 30%;
+    border-right: 1px solid black;
+
+}
+
+
+#updiv1{
+    background-color:#00FA9A;
+    width: 40%;
+
+}
+
+#updiv2{
+    background-color: white;
+    width: 20%;
+    border: 1px solid black;
+
+
+  }
+#updiv3{
+    background-color:white;
+    width: 60%;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.rightdiv{
+  display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#firstdiv{
+    background-color:white;
+    width: 10%;
+}
+
+#seconddiv{
+    background-color: #00FA9A;
+    width: 50%;
+    border: 2px;
+}
+#thirddiv{
+    background-color:white;
+    width: 10%;
+}
+#fourthdiv{
+    background-color:#F0E68C;
+    width: 40%;
+    border: 2px;
+}
+
+.flex-container{
+    display: flex;
+}
+.contacts{
+    width: 30%;
+    text-align: right;
+    margin: auto 0px;
+}
+.footer-image{
+    width: 50%;
+        margin: 40px;
+}
+
+.nav{
+text-align: left;
+}
+
+.logo-container1{
+  display: flex;
+  width: 20%;
+}
+.contacts1{
+    text-align: left;
+    margin: 30px;
+    width: 80%;
+}
+
+#kpi1{
+ margin: 20px 40px 0px 0px;
+}
