@@ -33,6 +33,7 @@ function eraseCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 function saveCookie(){
+    alert("cookie");
     var max = maxValue();
     alert(max);
     setCookie("max", max, 1000);
@@ -54,6 +55,7 @@ function deleteCookie(){
 }
 
 (function main(){
+    alert($("#test").html());
  $("#button").click(saveCookie);
     document.addEventListener("DOMContentLoaded", deleteCookie); 
 })();
