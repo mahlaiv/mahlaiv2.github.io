@@ -1,17 +1,21 @@
-jQuery.fn.changefontsTo = function(fonts) {
-    this.children().css("font-family", fonts);
+function noboldText(){
+document.getElementById('seconddiv').style.fontWeight = 'normal'
+localStorage.setItem("font", 'normal');
+}
+function boldText(){
+document.getElementById('seconddiv').style.fontWeight = 'bolder'
+localStorage.setItem("font", 'bolder');     
+}
+
+function takeFont(){
+var font = localStorage.getItem("font");
+    $("#seconddiv").changeFontTo(font);
+}
+
+jQuery.fn.changeFontTo = function(font){
+this.children().css("font-family", font);
 };
 
-function takefonts(){
-    var fonts = localStorage.getItem("font-family");
-    $("#content").changefontsTo(fonts);
-}
 
-
-function task4(){
-    var elem = $("#fonts")
-    elem.blur(function(){
-        $("#content").changeColorTo(elem.val());
-        localStorage.setItem("font-family", elem.val());
-    });
-}
+(function mainboldText(){
+document.addEventListener("DOMContentLoaded", takeFont);})();
