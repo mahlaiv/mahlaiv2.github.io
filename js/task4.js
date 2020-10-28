@@ -3,8 +3,8 @@ document.getElementById('seconddiv').style.fontWeight = 'normal'
 localStorage.setItem("font", 'normal');
 }
 function boldText(){
-document.getElementById('seconddiv').style.fontWeight = 'bolder'
-localStorage.setItem("font", 'bolder');     
+document.getElementById('seconddiv').style.fontWeight = 'bold'
+localStorage.setItem("font", 'bold');     
 }
 
 function takeFont(){
@@ -13,7 +13,7 @@ var font = localStorage.getItem("font");
 }
 
 jQuery.fn.changeFontTo = function(font){
-this.children().css("font-family", font);
+this.css("font-weight", font);
 };
 
 

@@ -1,71 +1,48 @@
-var contentold={};   //объявляем переменную для хранения неизменного текста
+function inputValue(from, to){
+    $(to).val($(from).html());
+}
+function EventAdd(elemToChange, elemWithValue){
+    $(elemWithValue).change(function(){
+        $(elemToChange).html($(elemWithValue).val());
+        localStorage.setItem(elemToChange, $(elemWithValue).val());
+    });
+}
+function buttonclick(button, elem){
+    $(button).click(function(){
+        localStorage.removeItem(elem);
+    });
+}
+function inputAll(){
+    EventAdd(".contacts1", "#contacts1-input");
+    EventAdd("#updiv1", "#updiv1-input");
+    EventAdd("#seconddiv", "#seconddiv-input");
+    EventAdd("#fourthdiv", "#fourthdiv-input");
+    EventAdd("#downdiv1", "#downdiv1-input");
+    buttonclick("#contacts1-button", ".contacts1");
+    buttonclick("#updiv1-button", "#updiv1");
+    buttonclick("#seconddiv-button", "#seconddiv");
+    buttonclick("#fourthdiv-button", "#fourthdiv");
+    buttonclick("#downdiv1-button", "#downdiv1");
+}
+function readlocalstorage(elem){
+    if(localStorage.getItem(elem)){
+        $(elem).html(localStorage.getItem(elem));
+    }
+}
+function setshtml(){
+    readlocalstorage(".contacts1");
+    readlocalstorage("#downdiv1");
+    readlocalstorage("#seconddiv");
+    readlocalstorage("#fourthdiv");
+    readlocalstorage("#updiv1");
+    inputValue(".contacts1", "#contacts1-input");
+    inputValue("#updiv1", "#updiv1-input");
+    inputValue("#seconddiv", "#seconddiv-input");
+    inputValue("#fourthdiv", "#fourthdiv-input");
+    inputValue("#downdiv1", "#downdiv1-input");
+    inputAll();
+}
 
-function savedata(elementidsave,contentsave) {  
-              //функция для сохранения отредактированного текста с помощью ajax
-  $.ajax({
-          url: 'save.php',    //url который обрабатывает и сохраняет наш текст
-          type: 'POST',
-          data: {
-                     content: contentsave,     //наш пост запрос
-                      id:elementidsave
-                 },				
-          success:function (data) { //получили ответ от сервера - обрабатываем
-          if (data == contentsave)
-        //сервер прислал нам отредактированный текст, значит всё ok
-            {                                                                      
-               $('#'+elementidsave).html(data);   
-//записываем присланные данные от сервера в элемент, который редактировался
-               $('<div id="status">Данные успешно сохранены:'+data+'</div>')   
-                       //выводим      сообщение об успешном ответе сервера
-                        .insertAfter('#'+elementidsave)
-                        .addClass("success")
-                        .fadeIn('fast')
-                        .delay(1000)
-                        .fadeOut('slow', function() {this.remove();}); 
-                            //уничтожаем элемент
-                }
-                  else
-                 {
-                   $('<div id="status">Запрос завершился ошибкой:'+data+'</div>')
-                                                // выводим данные про ошибку
-                       .insertAfter('#'+elementidsave)
-                       .addClass("error")
-                       .fadeIn('fast')
-                       .delay(3000)
-                       .fadeOut('slow', function() {this.remove();}); 
-                             //уничтожаем элемент
-                        }
-                    }
-               });
-       }               
-    $(document).ready(function() {
-       	$('[contenteditable="true"]')     //редактируемый элемент
-            .mousedown(function (e)    //обрабатываем событие нажатие мышки 
-                  {
-                    e.stopPropagation();                                
-                    elementid=this.id;
-                    contentold[elementid]=$(this).html();  //текст до редактирования
-                    $(this).bind('keydown', function(e) {    //обработчик нажатия Escape
-                        if(e.keyCode==27){
-                             e.preventDefault();
-                             $(this).html(contentold[elementid]);
-                                       	//возвращаем текст до редактирования	
-                             }
-                           });
-                           $("#save").show();//показываем кнопку "сохранить"
-                              })
-              .blur(function (event)      //обрабатываем событие потери фокуса
-                  {
-                      var elementidsave=this.id;             //id элемента потерявшего фокус         
-                      var  contentsave = $(this).html();           //текст для сохранения
-                      event.stopImmediatePropagation();
-                      if (elementid===elementidsave)   
-                                    // если id не совпадает с id элемента, потерявшего фокус,
-                      {$("#save").hide(); } 
-                           // значит фокус  в редактируемом элементе, кнопку не прячем
-                      if (contentsave!=contentold[elementidsave])  //если текст изменился           
-                            {    
-                                savedata(elementidsave,contentsave);   //отправляем на сервер
-                                }
-                    });      
-	});
+(function main6(){
+document.addEventListener("DOMContentLoaded", setshtml); 
+})();
