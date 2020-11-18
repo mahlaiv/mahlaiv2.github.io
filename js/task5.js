@@ -1,13 +1,13 @@
 $( document ).ready(function(){
-      $( "#button1" ).click(function(){ // задаем функцию при нажатиии на элемент <button>
-        $( ".contacts" ).scroll(); // вызываем событие "scroll" на элементе <div>
+      $( "#button1" ).click(function(){
+        $( ".contacts" ).scroll(); 
       });
-      $( ".contacts" ).scroll(function(){ // задаем функцию при срабатывании события "scroll" на элементе <div>
-        $( "span" ).text( "Scroll" ) // добавляем текстовое содержимое в элемент <span>
+      $( ".contacts" ).scroll(function(){ 
+        $( "span" ).text( "Scroll" ) 
                    .css({ 
-                     "display": "inline", // элемент <span> отображается как строчный
-                     "color": "red" // цвет текста красный
+                     "display": "inline", 
+                     "color": "red"
                    })
-                   .fadeOut( "fast" ); //  плавно изменяем прозрачность элемента <span>
+                   .fadeOut( "fast" );
       });
     });
