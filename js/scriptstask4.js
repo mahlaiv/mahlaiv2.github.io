@@ -84,8 +84,13 @@ $.ajax({
         text += `${el.commit.author.name}: ${el.commit.message} \n`;});
         textarea.val(text);},
         error: (xhr, textStatus, errorThrown) => {
-            sixthblock.innerHTML = `<p style = 'color:red;'>Error: ${textStatus} (${errorThrown}) </p>`;
-}});}
+        sixthblock.innerHTML = `<p style = 'color:red;'>Error: ${textStatus} (${errorThrown}) </p>`;
+        textarea.val("");
+        function deleteform() {
+sixthblock.innerHTML = " ";
+}
+setTimeout(deleteform, 1000);
+}})}
 
 //exercise 4
 
@@ -99,7 +104,6 @@ callback2();
 
 //exercise 5
 
-//let inputArrg = document.getElementById("selsort1")[0]
 
 
 function selectionSort(arr) { 
